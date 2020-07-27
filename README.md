@@ -15,7 +15,6 @@ URL of the GitHub repository: https://github.com/a-li-sa/password-generator
 * [Description](#description)
 * [View](#view)
 * [Usage](#usage)
-* [Project Status](#project-status)
 * [Built With](#built-with)
 * [Credits](#credits)
 * [License](#license)

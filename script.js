@@ -1,6 +1,5 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
 // Write password to the #password input
 function writePassword() {
   //prompt character types to include in the password 
@@ -42,7 +41,7 @@ function writePassword() {
       for (var i = 0; i < pwLength; i++) {
         randomArray.push(possibleCharacters[Math.floor(Math.random() * (possibleCharacters.length))]);
       }
-      // to guarantee at least one of the required character type in the password, remove the first item in array and push the character to the end of the array
+      // to guarantee that the password matches the selected criteria, remove the first item in array and push the confirmed character type to the end of the array
       if (lowercase) {
         randomArray.shift()
         randomArray.push(alphabetLower[Math.floor(Math.random() * 26)]);
@@ -57,7 +56,7 @@ function writePassword() {
       }
       if (special) {
         randomArray.shift()
-        randomArray.push(specialCharacters[Math.floor(Math.random() * specialCharacters.length)]);
+        randomArray.push(specialCharacters[Math.floor(Math.random() * (specialCharacters.length))]);
       }
       //shuffle the array to randomize the order
       var shuffledCharacters = randomArray.sort(() => Math.random() - 0.5);

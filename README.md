@@ -45,9 +45,13 @@ To view the website, you can click [here](https://a-li-sa.github.io/password-gen
 
 Click the button, answer the pop-ups on the screen, and then a password will be written to the page. 
 
-In the screenshot below, an 8-character password "jY4?ZW<+" was generated, which contains at least one lowercase, one uppercase, one numeric, and one special character.
+On the left, an 8-character password "jY4?ZW<+" was generated, which contains at least one lowercase, one uppercase, one numeric, and one special character. If nothing is selected, the user will be alerted to answer the pop-ups properly. 
 
-![](password.gif)
+<p float="left">
+  <img src="password.gif" width="400"/>
+  <img src="password2.gif" width="400"/> 
+  <img src="password3.gif" width="400"/>
+</p>
 
 ## Built With
 

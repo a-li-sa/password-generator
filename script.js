@@ -42,31 +42,27 @@ function writePassword() {
       for (var i = 0; i < pwLength; i++) {
         randomArray.push(possibleCharacters[Math.floor(Math.random() * (possibleCharacters.length))]);
       }
-      //use some() to validate input for each prompt answer
-      function atLeastOne(arr1, arr2) {
-        return arr1.some(item => arr2.includes(item))
-      }
-      //digits have a low chance of getting picked since there are only 10
-      //remove the first item in array and push digit to the end of the array to have at least one digit
-      if ((numeric) && (atLeastOne(digits, randomArray) === false)) {
-        randomArray.shift()
-        randomArray.push(digits[Math.floor(Math.random() * 10)]);
-      }
-      //pass all the other arrays to the atLeastOne function so that at least one of each character type can be selected
-      if ((lowercase) && (atLeastOne(alphabetLower, randomArray) === false)) {
+      // to guarantee at least one of the required character type in the password, remove the first item in array and push the character to the end of the array
+      if (lowercase) {
         randomArray.shift()
         randomArray.push(alphabetLower[Math.floor(Math.random() * 26)]);
       }
-      if ((uppercase) && (atLeastOne(alphabetUpper, randomArray) === false)) {
+      if (uppercase) {
         randomArray.shift()
         randomArray.push(alphabetUpper[Math.floor(Math.random() * 26)]);
       }
-      if ((special) && (atLeastOne(specialCharacters, randomArray) === false)) {
+      if (numeric) {
+        randomArray.shift()
+        randomArray.push(digits[Math.floor(Math.random() * 10)]);
+      }
+      if (special) {
         randomArray.shift()
         randomArray.push(specialCharacters[Math.floor(Math.random() * specialCharacters.length)]);
       }
-      //join the randomArray into a single string; generatePassword() will return this string
-      return randomArray.join('');
+      //shuffle the array to randomize the order
+      var shuffledCharacters = randomArray.sort(() => Math.random() - 0.5);
+      //join the array into a single string; generatePassword() will return this string
+      return shuffledCharacters.join('');
     }
     // if user does not confirm a character type, a password will not be generated
     if (!lowercase && !uppercase && !numeric && !special) {

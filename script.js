@@ -3,24 +3,24 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   //prompt character types to include in the password 
-  var howLong = prompt("How long do you want your password to be?\n\nYour password must be at least 8 characters long and no more than 128 characters.");
-  var pwLength = parseInt(howLong);
+  const howLong = prompt("How long do you want your password to be?\n\nYour password must be at least 8 characters long and no more than 128 characters.");
+  const pwLength = parseInt(howLong);
   //do not run the prompts if pwLength not >= 8 or <= 128
   if ((pwLength >= 8) && (pwLength <= 128)) {
     //(lowercase, uppercase, numeric, and/or special characters)
-    var lowercase = confirm("Press OK to include lowercase letters.");
-    var uppercase = confirm("Press OK to include uppercase letters.");
-    var numeric = confirm("Press OK to include numbers.");
-    var special = confirm("Press OK to include special characters.");
+    const lowercase = confirm("Press OK to include lowercase letters.");
+    const uppercase = confirm("Press OK to include uppercase letters.");
+    const numeric = confirm("Press OK to include numbers.");
+    const special = confirm("Press OK to include special characters.");
     //this string will be made into 2 arrays: one for uppercase, one for lowercase
-    var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     //make an array for each character type 
-    var alphabetUpper = alphabet.split('');
-    var alphabetLower = alphabet.toLowerCase().split('');
-    var digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    var specialCharacters = [" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
+    const alphabetUpper = alphabet.split('');
+    const alphabetLower = alphabet.toLowerCase().split('');
+    const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const specialCharacters = [" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
     //make an empty array 
-    var possibleCharacters = [];
+    let possibleCharacters = [];
     //push arays to the empty array if confirmed
     if (lowercase) {
       possibleCharacters.push(...alphabetLower);
@@ -35,7 +35,7 @@ function writePassword() {
       possibleCharacters.push(...specialCharacters);
     }
     // declare a new array for the random password
-    var randomArray = [];
+    let randomArray = [];
     // the function will push a random character to randomArray until its length = pwLength
     function generatePassword() {
       for (var i = 0; i < pwLength; i++) {
@@ -59,7 +59,7 @@ function writePassword() {
         randomArray.push(specialCharacters[Math.floor(Math.random() * (specialCharacters.length))]);
       }
       //shuffle the array to randomize the order
-      var shuffledCharacters = randomArray.sort(() => Math.random() - 0.5);
+      let shuffledCharacters = randomArray.sort(() => Math.random() - 0.5);
       //join the array into a single string; generatePassword() will return this string
       return shuffledCharacters.join('');
     }

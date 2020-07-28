@@ -72,7 +72,7 @@ function writePassword() {
       passwordText.value = password;
     }
   } else {
-    alert("Your password must be at least 8 characters long and no more than 128 characters.");
+    alert("Please enter a number at least 8 characters long and no more than 128 characters.");
   }
 }
 // Add event listener to generate button; when you click the button perform the writePassword function
